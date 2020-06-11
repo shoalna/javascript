@@ -15,3 +15,11 @@ downloadCSV(){
     this.table.download("csv", "Reult_" + filename + ".csv");
 };
 
+downloadReady: function (data, blob) {
+   var str_array = Encoding.stringToCode(data);
+   var default_encode = document.characterSet
+   var sjis_array = Encoding.convert(str_array, default_encode, "UNICODE");
+   var uint8_array = new Uint8Array(sjis_array);
+   var newBlob = new Blob([uint8_array], { type: 'text/csv' });
+   return newBlob;
+}
