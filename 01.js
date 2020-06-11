@@ -23,3 +23,9 @@ downloadReady: function (data, blob) {
    var newBlob = new Blob([uint8_array], { type: 'text/csv' });
    return newBlob;
 }
+
+downloadReady: function (data, blob) {
+    var uint8_array = new Uint8Array([0xEF, 0xBB, 0xBF]);
+    var newBlob = new Blob([uint8_array, data], { type: 'text/csv' });
+    return newBlob;
+}；
