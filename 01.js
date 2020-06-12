@@ -12,7 +12,7 @@ function sampleDate(date, format) {
 
 downloadCSV(){
     var filename = sampleDate(new Date(), "yyyyMMDDhhmmss")
-    this.table.download("csv", "Reult_" + filename + ".csv");
+    this.table.download("csv", "Reult_" + filename + ".csv", {bom:true});
 };
 
 downloadReady: function (data, blob) {
